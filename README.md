@@ -1,9 +1,9 @@
-# retryly
+# @arik0108/retryly
 
 Tiny, zero-dependency retry helper for async functions, with **exponential backoff**, **jitter**, **per-attempt timeouts** and **`AbortSignal`** support. Fully typed, ships ESM and CommonJS.
 
 ```sh
-npm install retryly
+npm install @arik0108/retryly
 ```
 
 ## Why
@@ -19,7 +19,7 @@ Network calls fail for short-lived reasons: overloaded servers, rate limits, dro
 ## Usage
 
 ```ts
-import { retry } from "retryly";
+import { retry } from "@arik0108/retryly";
 
 const user = await retry(
   async ({ signal }) => {
@@ -34,7 +34,7 @@ const user = await retry(
 CommonJS works too:
 
 ```js
-const { retry } = require("retryly");
+const { retry } = require("@arik0108/retryly");
 ```
 
 ### Only retry errors that can succeed later
@@ -63,7 +63,7 @@ await retry(
 ### Stop from inside the function
 
 ```ts
-import { retry, StopRetryError } from "retryly";
+import { retry, StopRetryError } from "@arik0108/retryly";
 
 await retry(async () => {
   const res = await fetch(url);
