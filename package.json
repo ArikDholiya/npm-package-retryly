@@ -1,0 +1,63 @@
+{
+  "name": "retryly",
+  "version": "1.0.0",
+  "description": "Tiny, zero-dependency retry helper with exponential backoff, jitter, per-attempt timeouts and AbortSignal support.",
+  "keywords": [
+    "retry",
+    "backoff",
+    "exponential-backoff",
+    "jitter",
+    "timeout",
+    "abort",
+    "promise",
+    "async",
+    "fetch",
+    "typescript"
+  ],
+  "author": "arik0108",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArikDholiya/npm-package-retryly.git"
+  },
+  "homepage": "https://github.com/ArikDholiya/npm-package-retryly#readme",
+  "bugs": {
+    "url": "https://github.com/ArikDholiya/npm-package-retryly/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.3"
+  },
+  "scripts": {
+    "build": "tsup && tsc -p tsconfig.build.json && cp dist/index.d.ts dist/index.d.cts",
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
